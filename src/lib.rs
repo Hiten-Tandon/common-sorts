@@ -12,7 +12,6 @@ mod tests {
         let mut vec : Vec<u8> = (0..SIZE).map(|_| rand::random::<u8>()).collect();
         vec.radix_sort();
         assert!(vec.windows(2).all(|window| window[0] <= window[1]));
-        println!("{:?}", vec);
     }
 
     #[test]
