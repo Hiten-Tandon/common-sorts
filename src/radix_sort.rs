@@ -535,7 +535,6 @@ impl RadixSort for Vec<f32>{
 
         Self::u32_sorting_routine(&mut negatives, neg_count, neg_max);
         Self::u32_sorting_routine(&mut positives, pos_count, pos_max);
-        negatives.reverse();
 
         i32_rep
             .iter_mut()
@@ -581,7 +580,6 @@ impl RadixSort for Vec<f64>{
 
         Self::u64_sorting_routine(&mut negatives, neg_count, neg_max);
         Self::u64_sorting_routine(&mut positives, pos_count, pos_max);
-        negatives.reverse();
 
         i64_rep
             .iter_mut()
@@ -920,7 +918,6 @@ impl RadixSort for [f32]{
 
         Self::u32_sorting_routine(&mut negatives, neg_count, neg_max);
         Self::u32_sorting_routine(&mut positives, pos_count, pos_max);
-        negatives.reverse();
 
         i32_rep
             .iter_mut()
@@ -966,7 +963,6 @@ impl RadixSort for [f64]{
 
         Self::u64_sorting_routine(&mut negatives, neg_count, neg_max);
         Self::u64_sorting_routine(&mut positives, pos_count, pos_max);
-        negatives.reverse();
 
         i64_rep
             .iter_mut()
@@ -996,7 +992,7 @@ impl RadixSort for [char] {
         Self::char_sorting_routine(self, len, max_ele);
     }
 }
-///experimental
+
 impl RadixSort for [String] {
     fn radix_sort(&mut self){
         let len = self.len();
