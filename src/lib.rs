@@ -5,7 +5,7 @@ mod tests {
     use crate::radix_sort::RadixSort;
     use rand::Rng;
 
-    const SIZE : usize = 10_000;
+    const SIZE : usize = 10_000_000;
 
     #[test]
     fn u8_radix_sort_test() {
@@ -90,6 +90,21 @@ mod tests {
         vec.radix_sort();
         assert!(vec.windows(2).all(|window| window[0] <= window[1]));
     }
+
+    #[test]
+    fn f32_radix_sort_test() {
+        let mut vec : Vec<f32> = (0..SIZE).map(|_| rand::random::<f32>()).collect();
+        vec.radix_sort();
+        assert!(vec.windows(2).all(|window| window[0] <= window[1]));
+    }
+
+    #[test]
+    fn f64_radix_sort_test() {
+        let mut vec : Vec<f64> = (0..SIZE).map(|_| rand::random::<f64>()).collect();
+        vec.radix_sort();
+        assert!(vec.windows(2).all(|window| window[0] <= window[1]));
+    }
+
 
     #[test]
     fn char_radix_sort_test() {
