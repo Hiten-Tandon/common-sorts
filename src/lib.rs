@@ -2,7 +2,7 @@ mod radix_sort;
 
 #[cfg(test)]
 mod tests {
-    use crate::radix_sort::RadixSort;
+    use crate::radix_sort::*;
     use rand::Rng;
     use std::collections::VecDeque;
 
