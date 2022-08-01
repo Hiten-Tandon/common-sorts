@@ -1,11 +1,15 @@
+//!Radix Sort is a sorting algorithm, particulalry useful when sorting, large sets of data. 
+//!It is an extension of the counting sort algorithm, and is a stable sorting algorithm.
+//!Radix sort has many implementations, that vary based on the type[ LSD / MSD ], Radix of the sort
+//!and the implementation method, i.e. counting sort or bucket sort.
+//!The one used here is LSD base - 255 radix sort, using counting sort. 
 mod vec_implementations;
 mod slice_implementations;
 mod lib;
 
+
 const RADIX : usize = 256;
 pub trait RadixSort {
-    //Radix sort can only sort unsigned integers
-    //for u8, it's same as counting sort, so, I've used it, so as to reduce boilerplate
     fn u8_sorting_routine(arr : &mut [u8], len : usize){ 
         let mut counts : [usize; RADIX] = [0; RADIX];
         arr.iter().for_each(|&i| counts[i as usize] += 1);
@@ -20,7 +24,7 @@ pub trait RadixSort {
             j += 1;
         }
     }
-
+    
     fn u16_sorting_routine(arr : &mut [u16], len : usize, mut max_ele : u16) {
         let mut exp : u8 = 0;
        

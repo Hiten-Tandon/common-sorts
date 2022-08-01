@@ -374,7 +374,6 @@ impl RadixSort for Vec<char> {
         Self::char_sorting_routine(self, len, max_ele);
     }
 }
-///experimental
 impl RadixSort for Vec<String> {
     fn radix_sort(&mut self){
         let len = self.len();
