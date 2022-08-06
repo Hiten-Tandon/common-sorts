@@ -110,8 +110,8 @@ mod tests {
         let mut vec : Vec<isize> = (0..SIZE).map(|_| rand::random::<isize>()).collect();
         let mut vec_clone = vec.clone();
         vec.radix_sort();
-        vec_clone.sort();
-        assert_eq!(vec, vec_clone);
+            vec_clone.sort();
+            assert_eq!(vec, vec_clone);
     }
 
     #[test]
