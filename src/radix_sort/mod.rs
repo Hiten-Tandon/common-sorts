@@ -2,7 +2,7 @@
 //!It is an extension of the counting sort algorithm, and is a stable sorting algorithm.
 //!Radix sort has many implementations, that vary based on the type[ LSD / MSD ], Radix of the sort
 //!and the implementation method, i.e. counting sort or bucket sort.
-//!The one used here is LSD base - 255 radix sort, using counting sort. 
+//!The one used here is LSD base - 256 radix sort, using counting sort. 
 mod vec_implementations;
 mod slice_implementations;
 mod lib;
