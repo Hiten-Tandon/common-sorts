@@ -138,7 +138,7 @@ pub fn usize_sorting_routine(arr: &mut [usize], len: usize, mut max_ele: usize) 
         let mut count: [usize; RADIX] = [0; RADIX];
         let mut temp: Vec<usize> = vec![0; len];
         arr.iter()
-            .for_each(|&x| count[(x >> (exp << 3)) as usize & (RADIX - 1)] += 1); //counting each digit
+            .for_each(|&x| count[(x >> (exp << 3)) & (RADIX - 1)] += 1); //counting each digit
 
         count[0] = count[0].wrapping_sub(1); //reducing count[0] by 1 so that we get 0-based index after prefix-sum or rolling sum of the array
 
@@ -147,7 +147,7 @@ pub fn usize_sorting_routine(arr: &mut [usize], len: usize, mut max_ele: usize) 
         }
 
         (0..len).rev().for_each(|i| {
-            let idx = &mut count[(arr[i] >> (exp << 3)) as usize & (RADIX - 1)];
+            let idx = &mut count[(arr[i] >> (exp << 3)) & (RADIX - 1)];
             temp[*idx] = arr[i];
             if *idx > 0 {
                 *idx -= 1

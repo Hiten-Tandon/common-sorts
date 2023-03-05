@@ -1,15 +1,14 @@
 use crate::radix_sort::internals::*;
 use crate::radix_sort::RadixSort;
-use core::ops::Deref;
 
-impl RadixSort for Deref<Target = [u8]> {
+impl RadixSort for [u8] {
     fn radix_sort(&mut self) {
         let len = self.len();
         u8_sorting_routine(self, len);
     }
 }
 
-impl RadixSort for Deref<Target = [i8]> {
+impl RadixSort for [i8] {
     fn radix_sort(&mut self) {
         let mut neg_count: usize = 0;
         let mut pos_count: usize = 0;
@@ -48,7 +47,7 @@ impl RadixSort for Deref<Target = [i8]> {
     }
 }
 
-impl RadixSort for Deref<Target = [u16]> {
+impl RadixSort for [u16] {
     fn radix_sort(&mut self) {
         let len = self.len();
         let max_ele = *self.iter().max().unwrap();
@@ -57,7 +56,7 @@ impl RadixSort for Deref<Target = [u16]> {
     }
 }
 
-impl RadixSort for Deref<Target = [i16]> {
+impl RadixSort for [i16] {
     fn radix_sort(&mut self) {
         let mut neg_count: usize = 0;
         let mut pos_count: usize = 0;
@@ -100,7 +99,7 @@ impl RadixSort for Deref<Target = [i16]> {
     }
 }
 
-impl RadixSort for Deref<Target = [u32]> {
+impl RadixSort for [u32] {
     fn radix_sort(&mut self) {
         let len = self.len();
         let max_ele = *self.iter().max().unwrap();
@@ -109,7 +108,7 @@ impl RadixSort for Deref<Target = [u32]> {
     }
 }
 
-impl RadixSort for Deref<Target = [i32]> {
+impl RadixSort for [i32] {
     fn radix_sort(&mut self) {
         let mut neg_count: usize = 0;
         let mut pos_count: usize = 0;
@@ -152,7 +151,7 @@ impl RadixSort for Deref<Target = [i32]> {
     }
 }
 
-impl RadixSort for Deref<Target = [u64]> {
+impl RadixSort for [u64] {
     fn radix_sort(&mut self) {
         let len = self.len();
         let max_ele = *self.iter().max().unwrap();
@@ -161,7 +160,7 @@ impl RadixSort for Deref<Target = [u64]> {
     }
 }
 
-impl RadixSort for Deref<Target = [i64]> {
+impl RadixSort for [i64] {
     fn radix_sort(&mut self) {
         let mut neg_count: usize = 0;
         let mut pos_count: usize = 0;
@@ -204,7 +203,7 @@ impl RadixSort for Deref<Target = [i64]> {
     }
 }
 
-impl RadixSort for Deref<Target = [u128]> {
+impl RadixSort for [u128] {
     fn radix_sort(&mut self) {
         let len = self.len();
         let max_ele = *self.iter().max().unwrap();
@@ -213,7 +212,7 @@ impl RadixSort for Deref<Target = [u128]> {
     }
 }
 
-impl<T : Deref<Target = [i128]>> RadixSort for T {
+impl RadixSort for [i128] {
     fn radix_sort(&mut self) {
         let mut neg_count: usize = 0;
         let mut pos_count: usize = 0;
@@ -256,7 +255,7 @@ impl<T : Deref<Target = [i128]>> RadixSort for T {
     }
 }
 
-impl<T : Deref<Target = [usize]>> RadixSort for T {
+impl RadixSort for [usize] {
     fn radix_sort(&mut self) {
         let len = self.len();
         let max_ele = *self.iter().max().unwrap();
@@ -265,7 +264,7 @@ impl<T : Deref<Target = [usize]>> RadixSort for T {
     }
 }
 
-impl<T :Deref<Target = [isize]>>  RadixSort for T {
+impl RadixSort for [isize] {
     fn radix_sort(&mut self) {
         let mut neg_count: usize = 0;
         let mut pos_count: usize = 0;
@@ -308,7 +307,7 @@ impl<T :Deref<Target = [isize]>>  RadixSort for T {
     }
 }
 
-impl<T: Deref<Target = [f32]>>  RadixSort for T{
+impl RadixSort for [f32] {
     fn radix_sort(&mut self) {
         let i32_rep: &mut [i32];
 
@@ -360,7 +359,7 @@ impl<T: Deref<Target = [f32]>>  RadixSort for T{
     }
 }
 
-impl<T : Deref<Target = [f64]>> RadixSort for T {
+impl RadixSort for [f64] {
     fn radix_sort(&mut self) {
         let i64_rep: &mut [i64];
 
@@ -411,13 +410,13 @@ impl<T : Deref<Target = [f64]>> RadixSort for T {
         }
     }
 }
-impl<T : Deref<Target = [bool]>> RadixSort for T{
+impl RadixSort for [bool] {
     fn radix_sort(&mut self) {
         bool_sorting_routine(self);
     }
 }
 
-impl<T : Deref<Target = [char]>> RadixSort for T {
+impl RadixSort for [char] {
     fn radix_sort(&mut self) {
         let len = self.len();
         let max_ele = *self.iter().max().unwrap();
@@ -426,7 +425,7 @@ impl<T : Deref<Target = [char]>> RadixSort for T {
     }
 }
 
-impl<T : Deref<Target = [String]>> RadixSort for T{
+impl RadixSort for [String] {
     fn radix_sort(&mut self) {
         let len = self.len();
         let max_str_len = self

@@ -4,9 +4,8 @@
 //!and the implementation method, i.e. counting sort or bucket sort.
 //!The one used here is LSD base - 255 radix sort, using counting sort.
 mod internals;
-mod lib;
-mod slice_implementations;
-mod vec_implementations;
+pub mod lib;
+pub mod slice_implementations;
 
 pub trait RadixSort {
     fn radix_sort(&mut self);
