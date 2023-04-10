@@ -11,7 +11,7 @@ impl<T: PartialOrd> BubbleSort for [T] {
     #[cold]
     fn bubble_sort(&mut self) {
         eprintln!("Bubble sort is a slow sorting algorithm, it should not be used over tim sort which is the standard sorting algorithm");
-        let len = self.len();
+        let len: usize = self.len();
 
         for i in 0..(len - 1) {
             for j in 0..(len - i - 1) {
@@ -26,8 +26,8 @@ impl<T: PartialOrd> BubbleSort for [T] {
 #[cfg(test)]
 #[test]
 fn bs_test() {
-    let mut vec = vec![10, -5, 6, 3, -5, 7, 8, 50, 12, -15, -82, -75];
+    let mut vec: Vec<i32> = (0..10_000).map(|_| rand::random::<i32>()).collect();
     vec.bubble_sort();
 
-    assert!(vec.windows(2).all(|window| window[0] <= window[1]));
+    assert!(vec.windows(2).all(|win| win[0] <= win[1]));
 }

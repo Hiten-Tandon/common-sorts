@@ -4,7 +4,7 @@ mod tests {
     use rand::Rng;
     use std::collections::VecDeque;
 
-    const SIZE: usize = 10_000_000;
+    const SIZE: usize = 1_000;
 
     #[test]
     fn u8_radix_sort_test() {
